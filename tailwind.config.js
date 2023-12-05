@@ -15,6 +15,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        greenPrimary: "#9BBD7E",
+        greenBg: "#E5EEDD",
+        greenSecondary: "#BED5AC",
+        greenThird: "#DFEBD5",
         border: "hsl(var(--border))",
         greenBg: "#E5EEDD",
         greenPrimary: "#9BBD7E",
