@@ -1,4 +1,5 @@
-import comment from "@/assets/comment.svg";
+import Comment from "@/assets/comment.svg";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 export default function Postcard() {
   return (
@@ -12,7 +13,22 @@ export default function Postcard() {
           <div className="flex gap-2">
             <p className="font-semibold text-xl">Nama</p>
             <p className="text-xl text-greenPrimary">@username</p>
-            <p className="text-lg text-greenPrimary">· 15h</p>
+            <div className="flex gap-72">
+              <p className="text-xl text-greenPrimary">15h</p>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="outline-greenPrimary">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <div className="flex flex-col ml-2 gap-2">
+                    <p>Edit</p>
+                    <p>Delete</p>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
           <p className="pt-1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque deserunt eos ratione quaerat saepe fugit voluptatibus porro aperiam ex culpa nostrum corporis accusamus, vitae nam commodi debitis harum placeat voluptas.
@@ -24,7 +40,7 @@ export default function Postcard() {
             />
           </div>
           <div className="flex justify-end mr-5 mt-1">
-            <img src={comment} />
+            <img src={Comment} />
           </div>
         </div>
       </div>
