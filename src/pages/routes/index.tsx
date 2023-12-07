@@ -3,6 +3,7 @@ import Home from "../home";
 import Login from "../auth";
 import Detail from "../detail";
 import ProtectedRoutes from "./protected-routes";
+import Profile from "../profile";
 
 export default function Routes() {
   const router = createBrowserRouter([
@@ -20,6 +21,10 @@ export default function Routes() {
         {
           path: "/detail",
           element: <Detail />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
         {
           path: "*",
