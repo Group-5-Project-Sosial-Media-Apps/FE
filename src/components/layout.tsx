@@ -9,13 +9,11 @@ interface Props {
 const Layout = (props: Props) => {
   const { children } = props;
   return (
-    <div className="w-full h-screen flex flex-row bg-greenBg">
+    <div className="w-full h-screen flex flex-col md:flex-row bg-greenBg">
       <Navigation />
 
-      <div className="w-full flex flex-col grow overflow-auto">
-        {children}
-        <MobileNavigation />
-      </div>
+      <div className="w-full flex flex-col grow overflow-auto">{children}</div>
+      <MobileNavigation />
     </div>
   );
 };
