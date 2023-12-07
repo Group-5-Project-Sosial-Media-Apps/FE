@@ -27,9 +27,7 @@ const Profile = () => {
               <p className="text-greenPrimary">@user1234</p>
             </div>
           </div>
-          <Button className="bg-greenPrimary hover:bg-greenPrimary rounded-full">
-            Edit Profile
-          </Button>
+          <Button className="bg-greenPrimary hover:bg-greenPrimary rounded-full">Edit Profile</Button>
         </div>
         <div className="flex border-2 border-greenPrimary justify-center py-2 my-4">
           <p>Posts</p>
