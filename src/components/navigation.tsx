@@ -9,7 +9,7 @@ export default function Navigation() {
   console.log(pathname);
 
   return (
-    <div className="bg-greenThird shadow-md shadow-greenPrimary rounderd-md max-w-xs h-screen">
+    <div className="hidden md:flex bg-greenThird shadow-md shadow-greenPrimary rounded-r-md max-w-xs h-screen">
       <div className="h-full flex flex-col justify-center items-center">
         <img className="py-4 px-4 w-80 h-40" src={NYampah} />
         <div className="my-10">

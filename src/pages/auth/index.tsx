@@ -9,11 +9,11 @@ const Login = () => {
       <div className="mx-auto grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col items-center justify-end mb-5 md:mb-0 md:mr-16">
           <img src={logo} className=" hidden md:flex w-80 h-80" />
-          <p className="text-greenPrimary text-center font-bold text-lg md:text-2x1 mt-3">Throw your feel all the way</p>
+          <p className="text-greenPrimary text-center font-bold xl:text-3xl lg:text-2xl text-xl mt-3">Throw your feel all the way</p>
         </div>
         <div className="flex flex-col md:ml-16">
-          <h1 className="text-greenPrimary md:text-left text-center font-bold text-[30px] md:text-[50px]">Welcome Thrower</h1>
-          <p className="text-greenPrimary md:text-left text-center font-bold text-[25px] md:text-[36px] mt-9 mb-5">Join Now</p>
+          <h1 className="text-greenPrimary md:text-left text-center font-bold text-4xl lg:text-5xl xl:text-6xl">Welcome Thrower</h1>
+          <p className="text-greenPrimary md:text-left text-center font-bold text-3xl lg:text-5xl mt-9 mb-5">Join Now</p>
           <Dialog>
             <DialogTrigger className="bg-white text-greenPrimary font-bold h-12 w-80 rounded-full text-[20px] transition duration-300 ease-in-out transform hover:bg-greenPrimary hover:text-white hover:scale-105">
               Create Account
