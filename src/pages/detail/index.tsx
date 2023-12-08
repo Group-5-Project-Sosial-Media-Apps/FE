@@ -7,8 +7,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/compon
 const Detail = () => {
   return (
     <Layout>
-      <div className="flex w-full xl:w-2/3 h-screen justify-center">
-        <div className=" bg-greenThird shadow-greenPrimary shadow-sm mb-2">
+      <div className="flex flex-col w-full justify-center items-center md:px-10">
+        <div className=" bg-greenThird shadow-greenPrimary shadow-sm mb-2 xl:w-2/3">
           <div className="flex gap-3 px-5 py-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="#9BBD7E" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9BBD7E" className="w-5 h-5 mt-1">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -97,8 +97,8 @@ const Detail = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <p className="pt-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque deserunt eos ratione quaerat saepe fugit voluptatibus porro aperiam ex culpa nostrum corporis accusamus, vitae nam commodi debitis harum placeat voluptas.
+              <p className="pt-1 pb-4">
+                Lorem ipsum door sit amet consectetur adipisicing elit. Neque deserunt eos ratione quaerat saepe fugit voluptatibus porro aperiam ex culpa nostrum corporis accusamus, vitae nam commodi debitis harum placeat voluptas.
               </p>
             </div>
           </div>
