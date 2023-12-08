@@ -1,2 +1,4 @@
 import type { Response } from "./types";
-export type { Response };
+import type { EditSchema, editSchema } from "./types";
+export type { Response, EditSchema };
+export { editSchema };

@@ -1,3 +1,4 @@
+import * as z from "zod";
 export interface Response {
   message: string;
   data: Posting[];
@@ -36,3 +37,12 @@ export interface Pagination {
   page: number;
   pagesize: number;
 }
+
+export const editSchema = z.object({
+  pesan: z.string().min(1, {
+    message: "Caption is required",
+  }),
+  image: z.string(),
+});
+
+export type EditSchema = z.infer<typeof editSchema>;

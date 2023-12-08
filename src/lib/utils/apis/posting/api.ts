@@ -20,3 +20,13 @@ export const deletePost = async (postId: number) => {
     throw Error(error.response.data.message);
   }
 };
+
+export const editPost = async (postId: number) => {
+  try {
+    const response = await axiosWithConfig.post(`https://virtserver.swaggerhub.com/SocialMediaApps/sosmed/1.0.0/posts/${postId}`);
+
+    return response.data;
+  } catch (error: any) {
+    throw Error(error.response.data.message);
+  }
+};

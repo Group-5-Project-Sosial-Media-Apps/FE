@@ -1,7 +1,11 @@
 import Comment from "@/assets/comment.svg";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Posting } from "@/lib/utils/apis/posting/types";
+import { EditSchema, Posting, editSchema } from "@/lib/utils/apis/posting/types";
 import { deletePost } from "@/lib/utils/apis/posting/api";
+import { toast } from "./ui/use-toast";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 interface Props {
   data: Posting;
@@ -9,16 +13,25 @@ interface Props {
 
 export default function Postcard(props: Props) {
   const { data } = props;
+  const handleClick = () => {
+    window.location.href = "/detail";
+  };
 
   const handleDelete = async () => {
     try {
       const result = await deletePost(data.postID);
-
-      console.log(result);
-    } catch (error) {
-      console.log(error);
+      toast({
+        description: result.message,
+      });
+    } catch (error: any) {
+      toast({
+        title: "Oops! Something went wrong.",
+        description: error.toString(),
+        variant: "destructive",
+      });
     }
   };
+
   return (
     <div className="flex flex-row justify-center bg-greenThird shadow-greenPrimary shadow-sm px-2">
       <img src={data.user.image} className="w-16 h-16 rounded-full" />
@@ -37,7 +50,24 @@ export default function Postcard(props: Props) {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <div className="flex flex-col ml-2 gap-2">
-                <p>Edit</p>
+                <Dialog>
+                  <DialogTrigger className="text-start">Edit</DialogTrigger>
+                  <DialogContent className="w-full md:w-[80%] lg:w-[60%] h-auto md:h-[80%] lg:h-[85%]">
+                    <DialogHeader>
+                      <DialogTitle className="mt-6 md:ml-10 font-bold text-center md:text-left text-lg md:text-2x1 lg:text-3xl text-greenPrimary">Edit Post</DialogTitle>
+                    </DialogHeader>
+                    <div className="flex flex-col gap-4 md:gap-8 p-10">
+                      <Input placeholder="Caption" className="placeholder:text-greenPrimary" />
+
+                      <Input placeholder="Foto" type="file" accept="image/*" className="placeholder:text-greenPrimary" />
+                    </div>
+                    <DialogFooter className="justify-center">
+                      <Button type="submit" className="bg-greenPrimary text-white w-full md:w-40 h-12 rounded-full text-[15px] md:text-base lg:text-lg">
+                        Save changes
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
                 <div onClick={handleDelete} className="cursor-pointer">
                   Delete
                 </div>
@@ -47,7 +77,7 @@ export default function Postcard(props: Props) {
         </div>
         <p className="pt-1">{data.pesan}</p>
         <div className="flex justify-center mr-5 mt-5">
-          <img src={data.image} className="aspect-square w-auto h-auto md:w-96 md:h-96 rounded-lg" />
+          <img onClick={handleClick} src={data.image} className="aspect-square w-auto h-auto md:w-96 md:h-96 rounded-lg" />
         </div>
         <div className="flex justify-end mr-5 mt-1">
           <img src={Comment} />

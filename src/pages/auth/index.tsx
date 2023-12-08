@@ -156,11 +156,8 @@ const Login = () => {
                     </CustomFormField>
                   </div>
                   <DialogFooter className="justify-center">
-                    <Button
-                      type="submit"
-                      className="bg-greenPrimary text-white w-full md:w-40 h-12 rounded-full text-[15px] md:text-base lg:text-lg"
-                    >
-                      Save changes
+                    <Button type="submit" className="bg-greenPrimary text-white w-full md:w-40 h-12 rounded-full text-[15px] md:text-base lg:text-lg">
+                      Register
                     </Button>
                   </DialogFooter>
                 </form>
@@ -209,13 +206,8 @@ const Login = () => {
                     </CustomFormField>
                   </div>
                   <DialogFooter className="sm:justify-center">
-                    <Button
-                      type="submit"
-                      className="bg-greenPrimary text-white w-full md:w-40 h-12 rounded-full text-[15px] md:text-base lg:text-lg"
-                      disabled={form.formState.isSubmitting}
-                      aria-disabled={form.formState.isSubmitting}
-                    >
-                      Save changes
+                    <Button type="submit" className="bg-greenPrimary text-white w-full md:w-40 h-12 rounded-full text-[15px] md:text-base lg:text-lg" disabled={form.formState.isSubmitting} aria-disabled={form.formState.isSubmitting}>
+                      Login
                     </Button>
                   </DialogFooter>
                 </form>
