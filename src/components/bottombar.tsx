@@ -1,4 +1,3 @@
-import path from "path";
 import { Link, useLocation } from "react-router-dom";
 
 const MobileNavigation = () => {

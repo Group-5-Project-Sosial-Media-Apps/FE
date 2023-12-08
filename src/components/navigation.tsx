@@ -1,12 +1,8 @@
 import NYampah from "@/assets/NYampah.svg";
-import { Posting } from "@/lib/utils/apis/posting/types";
+
 import { Link, useLocation } from "react-router-dom";
 
-interface Props {
-  data: Posting;
-}
-export default function Navigation(props: Props) {
-  const { data } = props;
+export default function Navigation() {
   const location = useLocation();
   const { pathname } = location;
   const activeElementClasses = `bg-white rounded-full`;
@@ -24,7 +20,7 @@ export default function Navigation(props: Props) {
               className="w-16 h-16 rounded-full"
             />
             <div className="flex flex-col justify-center gap-1">
-              <div className="font-semibold text-xl">data</div>
+              <div className="font-semibold text-xl">Nama</div>
               <div className="text-lg text-greenPrimary">@username</div>
             </div>
           </div>

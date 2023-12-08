@@ -1,13 +1,9 @@
 import Comment from "@/assets/comment.svg";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { EditSchema, Posting, editSchema } from "@/lib/utils/apis/posting/types";
-import { deletePost, editPost } from "@/lib/utils/apis/posting/api";
+import { deletePost } from "@/lib/utils/apis/posting/api";
 import { toast } from "./ui/use-toast";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
-import { Form } from "./ui/form";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import CustomFormField from "./custom-field";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
@@ -17,6 +13,9 @@ interface Props {
 
 export default function Postcard(props: Props) {
   const { data } = props;
+  const handleClick = () => {
+    window.location.href = "/detail";
+  };
 
   const handleDelete = async () => {
     try {
@@ -78,7 +77,7 @@ export default function Postcard(props: Props) {
         </div>
         <p className="pt-1">{data.pesan}</p>
         <div className="flex justify-center mr-5 mt-5">
-          <img src={data.image} className="aspect-square w-auto h-auto md:w-96 md:h-96 rounded-lg" />
+          <img onClick={handleClick} src={data.image} className="aspect-square w-auto h-auto md:w-96 md:h-96 rounded-lg" />
         </div>
         <div className="flex justify-end mr-5 mt-1">
           <img src={Comment} />

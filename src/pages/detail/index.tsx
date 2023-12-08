@@ -3,32 +3,8 @@ import Comment from "@/assets/comment.svg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Posting } from "@/lib/utils/apis/posting/types";
-import { deletePost } from "@/lib/utils/apis/posting/api";
-import { toast } from "@/components/ui/use-toast";
 
-interface Props {
-  data: Posting;
-}
-
-const Detail = (props: Props) => {
-  const { data } = props;
-
-  const handleDelete = async () => {
-    try {
-      const result = await deletePost(data.postID);
-      toast({
-        description: result.message,
-      });
-    } catch (error: any) {
-      toast({
-        title: "Oops! Something went wrong.",
-        description: error.toString(),
-        variant: "destructive",
-      });
-    }
-  };
-
+const Detail = () => {
   return (
     <Layout>
       <div className="flex flex-col w-full justify-center items-center md:px-10">
@@ -40,12 +16,15 @@ const Detail = (props: Props) => {
             <p className="font-bold text-xl text-greenPrimary">Post</p>
           </div>
           <div className="flex flex-row shadow-sm px-2 ">
-            <img src={data.user.image} className="w-16 h-16 rounded-full" />
+            <img
+              src="https://s3-alpha-sig.figma.com/img/8d45/fb06/124031e8cbb9e0f5ce05f2193bef2a8e?Expires=1702857600&Signature=kvtA1Oxig4LJQetIqrRqx5ucTdBgOSCqe5ryJG4Pbg4GJwvaaT3YjO~6SrMzuDEBj0NiVgk6RSkko~7ZgC43XQy2efq4IIU7mw7s-PulLBpKgY7wQDfetK6vz9BqUnEYeif2UXRD5hizhK1lQMBO3-QNt2FAxLAtOi0NjihHQo1A4RU3P3cjjtK1lQVw4NXnrVBs80-xcdGX7db5bzHTFxToJTnXAboJe0RS7R6JvmPehizZfHQL8a1uxd9AVLw0sfa3937UbbTo-ha2m~QjTziPAR2GcKlrKuyld0LRSXefNK9y8VwcLkwDVwcS1SVDfVe9U~7j~TFxT1SwSAhkTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              className="w-16 h-16 rounded-full"
+            />
             <div className="flex flex-col gap-2 ml-5 pt-1">
               <div className="flex flex-row justify-between">
                 <div className="flex flex-row gap-2">
-                  <p className="font-semibold text-xl">{data.user.name}</p>
-                  <p className="text-xl text-greenPrimary">@{data.user.username}</p>
+                  <p className="font-semibold text-xl">Nama</p>
+                  <p className="text-xl text-greenPrimary">@username</p>
                   <p className="text-xl text-greenPrimary">15h</p>
                 </div>
                 <DropdownMenu>
@@ -57,16 +36,19 @@ const Detail = (props: Props) => {
                   <DropdownMenuContent>
                     <div className="flex flex-col ml-2 gap-2">
                       <p>Edit</p>
-                      <div onClick={handleDelete} className="cursor-pointer">
-                        Delete
-                      </div>
+                      <p>Delete</p>
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <p className="pt-1">{data.pesan}</p>
+              <p className="pt-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque deserunt eos ratione quaerat saepe fugit voluptatibus porro aperiam ex culpa nostrum corporis accusamus, vitae nam commodi debitis harum placeat voluptas.
+              </p>
               <div className="flex justify-center mr-5 mt-5">
-                <img src={data.image} className="w-96 h-96 rounded-lg" />
+                <img
+                  src="https://s3-alpha-sig.figma.com/img/8d45/fb06/124031e8cbb9e0f5ce05f2193bef2a8e?Expires=1702857600&Signature=kvtA1Oxig4LJQetIqrRqx5ucTdBgOSCqe5ryJG4Pbg4GJwvaaT3YjO~6SrMzuDEBj0NiVgk6RSkko~7ZgC43XQy2efq4IIU7mw7s-PulLBpKgY7wQDfetK6vz9BqUnEYeif2UXRD5hizhK1lQMBO3-QNt2FAxLAtOi0NjihHQo1A4RU3P3cjjtK1lQVw4NXnrVBs80-xcdGX7db5bzHTFxToJTnXAboJe0RS7R6JvmPehizZfHQL8a1uxd9AVLw0sfa3937UbbTo-ha2m~QjTziPAR2GcKlrKuyld0LRSXefNK9y8VwcLkwDVwcS1SVDfVe9U~7j~TFxT1SwSAhkTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                  className="w-96 h-96 rounded-lg"
+                />
               </div>
               <div className="flex justify-between mr-5 mt-1">
                 <p className="text-xl text-greenPrimary">15h</p>
