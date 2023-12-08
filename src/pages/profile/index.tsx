@@ -1,10 +1,29 @@
 import Layout from "@/components/layout";
 import Postcard from "@/components/postcard";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import EditProfile from "./edit-profile";
+import { Posting } from "@/lib/utils/apis/posting/types";
+import { getPost } from "@/lib/utils/apis/posting/api";
 
 const Profile = () => {
+  const [posting, setPosting] = useState<Posting[]>([]);
+
+  useEffect(() => {
+    fetchPosting();
+  }, []);
+
+  const fetchPosting = async () => {
+    try {
+      const result = await getPost(1, 20);
+
+      setPosting(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Layout>
       <div className="flex flex-col">
@@ -23,19 +42,20 @@ const Profile = () => {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div className="flex flex-col mt-2">
-              <p className="text-greenPrimary">The Super MAN</p>
+              <p className="text-greenPrimary font-bold">The Super MAN</p>
               <p className="text-greenPrimary">@user1234</p>
             </div>
           </div>
-          <Button className="bg-greenPrimary hover:bg-greenPrimary rounded-full">Edit Profile</Button>
+          <EditProfile />
         </div>
         <div className="flex border-2 border-greenPrimary justify-center py-2 my-4">
           <p>Posts</p>
         </div>
         <div className="w-full flex flex-col items-center">
           <div className="flex flex-col w-full xl:w-2/3 md:px-10">
-            <Postcard />
-            <Postcard />
+            {posting.map((item: Posting, index: number) => (
+              <Postcard key={index} data={item} />
+            ))}
           </div>
         </div>
       </div>
