@@ -47,7 +47,7 @@ const Profile = () => {
           <Button className="bg-greenPrimary hover:bg-greenPrimary rounded-full">Edit Profile</Button>
         </div>
         <div className="flex border-2 border-greenPrimary justify-center py-2 my-4">
-          <p>Posts</p>
+          <p className="font-bold">Posts</p>
         </div>
         <div className="w-full flex flex-col items-center">
           <div className="flex flex-col w-full xl:w-2/3 md:px-10">
