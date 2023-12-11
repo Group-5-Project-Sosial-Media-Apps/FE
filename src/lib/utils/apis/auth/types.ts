@@ -14,5 +14,8 @@ export const registerSchema = z.object({
   password: z.string().min(1, { message: "password minimal 1 angka atau lebih" }),
 });
 
+
+
+
 export type LoginSchema = z.infer<typeof loginSchema>;
 export type RegisterSchema = z.infer<typeof registerSchema>;
