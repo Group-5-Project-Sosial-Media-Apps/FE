@@ -21,6 +21,7 @@ const Home = () => {
       console.log(error);
     }
   };
+
   return (
     <Layout>
       <div className="flex flex-col bg-greenBg min-h-screen items-center">

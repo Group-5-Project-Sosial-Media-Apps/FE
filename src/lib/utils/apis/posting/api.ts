@@ -1,5 +1,6 @@
 import { Response } from ".";
 import axiosWithConfig from "../axiosWithConfig";
+import { BodyData } from "./types";
 
 export const getPost = async (page?: number, pagesize?: number) => {
   try {
@@ -21,9 +22,14 @@ export const deletePost = async (postId: number) => {
   }
 };
 
-export const editPost = async (postId: number) => {
+export const editPost = async (body: BodyData, postId: number) => {
   try {
-    const response = await axiosWithConfig.post(`https://virtserver.swaggerhub.com/SocialMediaApps/sosmed/1.0.0/posts/${postId}`);
+    const formData = new FormData();
+    formData.append("pesan", body.pesan);
+    if (body.image !== null) {
+      formData.append("image", body.image);
+    }
+    const response = await axiosWithConfig.put(`https://virtserver.swaggerhub.com/SocialMediaApps/sosmed/1.0.0/posts/${postId}`, formData);
 
     return response.data;
   } catch (error: any) {

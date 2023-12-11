@@ -19,7 +19,7 @@ export default function Routes() {
           element: <Login />,
         },
         {
-          path: "/detail",
+          path: `/detail/:postId`,
           element: <Detail />,
         },
         {

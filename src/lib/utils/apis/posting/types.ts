@@ -38,11 +38,22 @@ export interface Pagination {
   pagesize: number;
 }
 
+const MAX_FILE_SIZE = 5000000;
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
+
 export const editSchema = z.object({
   pesan: z.string().min(1, {
     message: "Caption is required",
   }),
-  image: z.string(),
+  image: z
+    .instanceof(File)
+    .refine((files) => files?.size <= MAX_FILE_SIZE, "Max image size is 5MB")
+    .refine((files) => ACCEPTED_IMAGE_TYPES.includes(files?.type), "Only .jpg, .jpeg, .png formats are supported"),
 });
 
 export type EditSchema = z.infer<typeof editSchema>;
+
+export interface BodyData {
+  pesan: string;
+  image: File | null;
+}
